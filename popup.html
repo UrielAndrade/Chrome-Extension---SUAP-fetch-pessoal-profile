@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>👤 Coletor de Perfil Pessoal</h2>
+    <p class="subtitle">Extração direta dos dados do perfil no SUAP</p>
+
+    <div class="status" id="status">
+      <span class="icon">ℹ️</span>
+      <span id="statusText">Pronto para iniciar</span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-number" id="recordCount">0</span>
+        <span class="stat-label">Perfis</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" id="pendingCount">0</span>
+        <span class="stat-label">Pendentes</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" id="currentPage">0</span>
+        <span class="stat-label">Coletas</span>
+      </div>
+    </div>
+
+    <div class="mode-selector">
+      <label>Modo de Coleta:</label>
+      <select id="collectMode">
+        <option value="fast">⚡ Rápida (campos principais)</option>
+        <option value="complete">🔍 Completa (inclui campos brutos)</option>
+        <option value="super">🚀 Super (inclui metadados extras)</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button id="startBtn" class="btn btn-primary">
+        ▶️ Coletar Perfil Atual
+      </button>
+
+      <button id="pauseBtn" class="btn btn-warning" disabled>
+        ⏸️ Pausar
+      </button>
+
+      <button id="resumeBtn" class="btn btn-secondary" disabled>
+        ▶️ Continuar
+      </button>
+
+      <button id="exportBtn" class="btn btn-success" disabled>
+        💾 Exportar CSV
+      </button>
+
+      <button id="resetBtn" class="btn btn-danger">
+        🔄 Limpar Dados
+      </button>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-info">
+        <span id="progressDetail">Aguardando início...</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-stats">
+        <small>Tempo estimado: <span id="timeEstimate">--</span></small>
+      </div>
+    </div>
+
+    <div class="live-log" id="liveLog">
+      <h4>📋 Log de Atividade</h4>
+      <div class="log-content" id="logContent">
+        <p class="log-entry info">Sistema pronto para coleta automatizada</p>
+      </div>
+    </div>
+
+    <div class="preview-section" id="previewSection" style="display: none;">
+      <h4>👁️ Último Perfil Coletado</h4>
+      <div class="preview-card" id="previewCard">
+        <!-- Dados serão inseridos aqui -->
+      </div>
+    </div>
+
+    <div class="footer">
+      <small>Abra a página de perfil pessoal no SUAP antes de coletar</small>
+      <small>v2.1 - Perfil Pessoal</small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

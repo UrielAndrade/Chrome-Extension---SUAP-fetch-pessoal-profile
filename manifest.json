@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "SUAP - Coletor de Perfil Pessoal",
+  "version": "2.1.0",
+  "description": "Coleta dados do perfil pessoal de alunos no SUAP a partir da tela de perfil",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads",
+    "tabs",
+    "background"
+  ],
+  "host_permissions": [
+    "https://suap.ifro.edu.br/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://suap.ifro.edu.br/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
